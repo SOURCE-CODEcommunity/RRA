@@ -31,7 +31,7 @@ def extract_animal_count(proposal: str) -> Dict[str, int]:
         template="""You are an AI tasked with analyzing research proposals for ethical compliance in animal usage.
         Extract the number and type of animals mentioned in the following proposal:
         {proposal}
-
+        if you did not find animals and the number of animals mention in the propoasl, just say the animal and number of animal not found.
         Provide the response as a JSON object where the keys are animal types and values are their counts."""
     )
 
