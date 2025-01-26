@@ -270,7 +270,7 @@
         // alert("PDF content processed successfully. Sending to server...");
         updateTableWithMessage("PDF content processed successfully. Sending to server...")
     
-        fetch("rra.onrender.com", {
+        fetch("https://rra.onrender.com/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
