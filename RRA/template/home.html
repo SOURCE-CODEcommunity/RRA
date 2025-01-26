@@ -308,6 +308,7 @@
         `;
     
         rpns.names.forEach((name) => {
+            if (rpns.compliance_report[name].toLowerCase() === 'compliant') {
             table.innerHTML += `
                 <tr>
                     <td>${name}</td>
@@ -315,6 +316,15 @@
                     <td>${rpns.compliance_report[name]} ✅</td>
                 </tr>
             `;
+            } else {
+            table.innerHTML += `
+                <tr>
+                    <td>${name}</td>
+                    <td>${rpns.animal_count[name]}</td>
+                    <td>${rpns.compliance_report[name]} ❌</td>
+                </tr>
+            `;
+            }  
         });
     }
     
