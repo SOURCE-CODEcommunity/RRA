@@ -7,3 +7,4 @@ langchain-google-genai
 langchain-text-splitters
 langsmith
 django-cors-headers
+langchain_google_genai
