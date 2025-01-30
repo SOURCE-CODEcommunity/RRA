@@ -180,7 +180,9 @@
                 <br>
                 <div class="content" style="padding: 10px;">
                     <h1>Reviewed Proposal</h1>
+                    
                     <div class="tbl">
+                        <h2 id="titlehd"></h2>
                         <table>
                             <tr>
                                 <th>
@@ -270,7 +272,7 @@
         // alert("PDF content processed successfully. Sending to server...");
         updateTableWithMessage("PDF content processed successfully. Sending to server...")
     
-        fetch("https://rra.onrender.com/", {
+        fetch("http://127.0.0.1:8000/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -285,7 +287,7 @@
                 updateTableWithMessage('Failed to fetch data from server')
             })
             .then((data) => {
-                if (!data.names || !data.animal_count || !data.compliance_report) {
+                if (!data.extracted_data || !data.compliance_report) {
                     throw new Error("Invalid server response format.");
                 }
                 updateTableWithData(data);
@@ -302,26 +304,33 @@
         table.innerHTML = `
             <tr>
                 <th>Name</th>
-                <th>Count</th>
                 <th>Compliance</th>
+                <th>Details</th>
             </tr>
         `;
-    
+
+        let titlehd = document.getElementById('titlehd');
+        let name = rpns.extracted_data['Animal type']
+        titlehd.textContent = `Animal Based Research Proposal Review (Animal Used: ${name})`
+            // console.log(rpns.names);
+            
         rpns.names.forEach((name) => {
-            if (rpns.compliance_report[name].toLowerCase() === 'compliant') {
+            let comply = rpns.compliance_report[name].split('. ')[0];
+            let details = rpns.compliance_report[name].split('. ')[1];
+            if (comply.toLowerCase() === 'compliant') {
             table.innerHTML += `
                 <tr>
                     <td>${name}</td>
-                    <td>${rpns.animal_count[name]}</td>
-                    <td>${rpns.compliance_report[name]} ✅</td>
+                    <td>${comply} ✅</td>
+                    <td>${details}</td>
                 </tr>
             `;
             } else {
             table.innerHTML += `
                 <tr>
                     <td>${name}</td>
-                    <td>${rpns.animal_count[name]}</td>
-                    <td>${rpns.compliance_report[name]} ❌</td>
+                    <td>${comply} ❌</td>
+                    <td>${details}</td>
                 </tr>
             `;
             }  
