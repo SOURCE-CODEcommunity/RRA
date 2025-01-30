@@ -132,6 +132,9 @@
             padding-bottom: 10px;
         }
 
+        .graylabel {
+            background: #99999914;
+
         .footbar {
             position: fixed;
             bottom: 0;
@@ -303,7 +306,7 @@
         const table = document.querySelector(".tbl table");
         table.innerHTML = `
             <tr>
-                <th>Label</th>
+                <th class='graylabel'>Label</th>
                 <th>Compliance</th>
                 <th>Details</th>
             </tr>
@@ -320,7 +323,7 @@
             if (comply.toLowerCase() === 'compliant') {
             table.innerHTML += `
                 <tr>
-                    <td>${name}</td>
+                    <td class='graylabel'>${name}</td>
                     <td>${comply} ✅</td>
                     <td>${details}</td>
                 </tr>
@@ -328,7 +331,7 @@
             } else {
             table.innerHTML += `
                 <tr>
-                    <td>${name}</td>
+                    <td class='graylabel'>${name}</td>
                     <td>${comply} ❌</td>
                     <td>${details}</td>
                 </tr>
