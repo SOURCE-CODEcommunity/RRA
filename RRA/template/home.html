@@ -71,7 +71,7 @@
 
         section .box {
             box-shadow: 1px 1px 20px rgba(105, 105, 105, 0.185);
-            width: 70%;
+            width: 84%;
             height: 70%;
             display: flex;
             justify-content: center;
@@ -128,12 +128,14 @@
         }
 
         th, td {
-            text-align: center;
+            text-align: left;
             padding-bottom: 10px;
+            padding-inline: 21px;
         }
 
         .graylabel {
             background: #99999914;
+        }
 
         .footbar {
             position: fixed;
@@ -164,7 +166,7 @@
             <div class="navbar-container">
                 <a href="#" class="logo">
                     <div>
-                        <p>Reasearch Review Assistant</p>
+                        <p>Research Review Assistant</p>
                     </div>
                 </a>
                 <ul class="navmenu">
@@ -188,7 +190,7 @@
                         <h2 id="titlehd"></h2>
                         <table>
                             <tr>
-                                <th>
+                                <th style='text-align: center;'>
                                     <h1 style="color: #0000005f;">Upload a PDF File</h1>
                                 </th>
                             </tr>
@@ -324,7 +326,7 @@
             table.innerHTML += `
                 <tr>
                     <td class='graylabel'>${name}</td>
-                    <td>${comply} ✅</td>
+                    <td style='min-width: 210px;'>${comply} ✅</td>
                     <td>${details}</td>
                 </tr>
             `;
@@ -332,7 +334,7 @@
             table.innerHTML += `
                 <tr>
                     <td class='graylabel'>${name}</td>
-                    <td>${comply} ❌</td>
+                    <td style='min-width: 210px;'>${comply} ❌</td>
                     <td>${details}</td>
                 </tr>
             `;
@@ -344,7 +346,7 @@
         const table = document.querySelector(".tbl table");
         table.innerHTML = `
             <tr>
-                <th>
+                <th style='text-align: center;'>
                     <h1 style="color: #0000005f;">${message}</h1>
                 </th>
             </tr>
