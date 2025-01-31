@@ -118,7 +118,7 @@ and criteria for humane care as outlined in the National Institute of Health Gui
 and Use of Laboratory Animals.
 """
 
-#def main(proposal: str = example_proposal):
+def main(proposal: str = example_proposal):
 
     # Example Proposal
     example_proposal = proposal
