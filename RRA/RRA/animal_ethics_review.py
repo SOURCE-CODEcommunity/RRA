@@ -6,7 +6,7 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 # Set your API key for Gemini (ensure the API key is correctly set in the environment variable or hardcoded here)
-os.environ["GOOGLE_API_KEY"] = "AIzaSyBJn-qeW-_DXjc4fFoRGOBWMgAqsQzXKqo"
+#os.environ["GOOGLE_API_KEY"] = "AIzaSyBJn-qeW-_DXjc4fFoRGOBWMgAqsQzXKqo"
 
 # Initialize the Gemini model
 llm = ChatGoogleGenerativeAI(
@@ -35,7 +35,7 @@ knowledge_base = {
 }
 
 # Function to extract and check compliance using LLM
-def analyze_proposal_with_llm(proposal: str) -> dict:
+#def analyze_proposal_with_llm(proposal: str) -> dict:
     prompt_template = PromptTemplate(
         input_variables=["proposal", "standards"],
         template="""
@@ -118,7 +118,7 @@ and criteria for humane care as outlined in the National Institute of Health Gui
 and Use of Laboratory Animals.
 """
 
-def main(proposal: str = example_proposal):
+#def main(proposal: str = example_proposal):
 
     # Example Proposal
     example_proposal = proposal
