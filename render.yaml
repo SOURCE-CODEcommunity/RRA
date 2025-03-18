@@ -1,1 +1,26 @@
 
+# render.yaml
+
+services:
+  - type: web
+    name: django-web-app
+    env: python
+    autoDeploy: true  # This ensures auto-deployment on new pushes
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: gunicorn RRA.wsgi:application --preload --workers=3
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: RRA.settings
+      - key: SECRET_KEY
+        sync: false  # Ensure it's securely set in Render's dashboard or secret manager
+      - key: DATABASE_URL
+        sync: false  # Set this in Render's dashboard for connecting to your database
+      - key: ALLOWED_HOSTS
+        value: rra.onrender.com
+
+databases:
+  - name: django-database
+    plan: free  # Free plan for the database
+    envVars:
+      - key: DATABASE_URL
