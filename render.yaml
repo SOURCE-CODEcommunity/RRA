@@ -22,5 +22,3 @@ services:
 databases:
   - name: django-database
     plan: free  # Free plan for the database
-    envVars:
-      - key: DATABASE_URL
