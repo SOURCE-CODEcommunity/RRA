@@ -35,7 +35,7 @@ knowledge_base = {
 }
 
 # Function to extract and check compliance using LLM
-#def analyze_proposal_with_llm(proposal: str) -> dict:
+def analyze_proposal_with_llm(proposal: str) -> dict:
     prompt_template = PromptTemplate(
         input_variables=["proposal", "standards"],
         template="""
