@@ -8,7 +8,7 @@ from .animal_ethics_review import main
 
 @csrf_exempt
 @require_http_methods(["POST", "GET", "OPTIONS"])
-#def rra_view(request):
+def rra_view(request):
     if request.method == 'POST':
         text = json.loads(request.body)['textContent']
 
